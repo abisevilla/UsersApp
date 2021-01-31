@@ -3,6 +3,7 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    
 }
 
 /* Wrapping element */
@@ -10,6 +11,22 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.update {
+    background-color: #3bc539 !important;
+    width:auto;
+    height:auto;
+}
+.fail {
+    background-color: #bd0b1cbf;
+    width: auto;
+    height: auto;
+}
+.permission {
+    background-color: #f18f17;
+    width: auto;
+    height: auto;
 }
 
 /* Carousel */

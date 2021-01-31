@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
-<body>
+<body >
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -26,23 +26,40 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">UsersApp</a>
+                <a asp-area="" asp-controller="Client" asp-action="Index" class="navbar-brand">UsersApp</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
+                @if (ViewBag.Rol == 0)
+                {
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="User" asp-action="Index">Users</a></li>
+
+
+                    </ul>
+                }
+                else
+                {
+
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Client" asp-action="Index">Clients</a></li>
+                        <li><a href="@Url.Action("Details", "Agenda" , new { id=  @TempData["iduser"]})">Agenda</a></li>
+
+                    </ul>
+
+                }
+                <div class="nav pull-right text-info">
+                    <a class="btn btn-info" href="@Url.Action("Index","Login")"> Log out</a>
+                </div>
             </div>
         </div>
     </nav>
 
     <partial name="_CookieConsentPartial" />
-
+    @RenderSection("Scripts", required: false)
     <div class="container body-content">
         @RenderBody()
         <hr />
+
         <footer>
             <p>&copy; 2021 - UsersApp</p>
         </footer>
@@ -69,6 +86,6 @@
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
-    @RenderSection("Scripts", required: false)
+
 </body>
 </html>
