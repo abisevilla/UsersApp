@@ -29,7 +29,10 @@
                 <a asp-area="" asp-controller="Client" asp-action="Index" class="navbar-brand">UsersApp</a>
             </div>
             <div class="navbar-collapse collapse">
-                @if (ViewBag.Rol == 0)
+                @{ 
+                    string idrol = TempData["idrol"].ToString();
+                }
+                @if ( idrol== "1")
                 {
                     <ul class="nav navbar-nav">
                         <li><a asp-area="" asp-controller="User" asp-action="Index">Users</a></li>
@@ -42,7 +45,7 @@
 
                     <ul class="nav navbar-nav">
                         <li><a asp-area="" asp-controller="Client" asp-action="Index">Clients</a></li>
-                        <li><a href="@Url.Action("Details", "Agenda" , new { id=  @TempData["iduser"]})">Agenda</a></li>
+                        <li><a href="@Url.Action("Details", "Agenda" , new { id=  @TempData["iduser"] , idrol=0})">Agenda</a></li>
 
                     </ul>
 

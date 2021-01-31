@@ -20,7 +20,7 @@ namespace UsersApp.Controllers
         // GET: User
         public ActionResult Index()
         {
-
+            TempData["idrol"] = 1;
             var data = _context.Users.ToList();
             return View(data);
         }
@@ -28,7 +28,7 @@ namespace UsersApp.Controllers
         // GET: User/Details/5
         public ActionResult Details(int iduser)
         {
-         
+            TempData["idrol"] = 1;
             ViewBag.idUser = iduser;
             return View();
         }
@@ -45,6 +45,7 @@ namespace UsersApp.Controllers
         // GET: User/Create
         public ActionResult Create()
         {
+            TempData["idrol"] = 1;
             return View();
         }
 
@@ -69,17 +70,20 @@ namespace UsersApp.Controllers
         // GET: User/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            TempData["idrol"] = 1;
+            var user = _context.Users.FirstOrDefault(x => x.IdUser == id);
+            return View(user);
         }
 
         // POST: User/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, User user)
         {
             try
             {
-                // TODO: Add update logic here
+                _context.Users.Update(user);
+                _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }
@@ -89,27 +93,6 @@ namespace UsersApp.Controllers
             }
         }
 
-        // GET: User/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: User/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+       
     }
 }

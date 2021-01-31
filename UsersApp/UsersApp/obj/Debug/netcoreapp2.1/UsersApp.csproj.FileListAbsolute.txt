@@ -42,3 +42,5 @@ C:\Users\casa\Documents\AB Solutions\Test\UsersApp\UsersApp\UsersApp\obj\Debug\n
 C:\Users\casa\Documents\AB Solutions\Test\UsersApp\UsersApp\UsersApp\obj\Debug\netcoreapp2.1\UsersApp.pdb
 C:\Users\casa\Documents\AB Solutions\Test\UsersApp\UsersApp\UsersApp\obj\Debug\netcoreapp2.1\UsersApp.genruntimeconfig.cache
 C:\Users\casa\Documents\AB Solutions\Test\UsersApp\UsersApp\UsersApp\obj\Debug\netcoreapp2.1\UsersApp.csproj.CopyComplete
+C:\Users\casa\Documents\AB Solutions\Test\UsersApp\UsersApp\UsersApp\obj\Debug\netcoreapp2.1\UsersApp.csprojAssemblyReference.cache
+C:\Users\casa\Documents\AB Solutions\Test\UsersApp\UsersApp\UsersApp\obj\Debug\netcoreapp2.1\Razor\Views\User\Edit.cshtml.g.cs

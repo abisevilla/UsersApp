@@ -24,8 +24,9 @@ namespace UsersApp.Controllers
         }
 
         // GET: Agenda/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int id, int idrol)
         {
+            TempData["idrol"] = idrol;
             ViewBag.idUser = id;
             return View();
         }

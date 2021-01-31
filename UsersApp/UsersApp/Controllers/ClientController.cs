@@ -22,7 +22,8 @@ namespace UsersApp.Controllers
         // GET: Client
         public ActionResult Index()
         {
-           var data= _context.Clients.ToList();
+            TempData["idrol"] = 0;
+            var data= _context.Clients.ToList();
            
             return View(data);
         }
@@ -54,8 +55,9 @@ namespace UsersApp.Controllers
         }
 
         // GET: Client/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, int idrol)
         {
+            TempData["idrol"] = idrol;
             var cli = _context.Clients.FirstOrDefault(c => c.IdClient == id);
             return View(cli);
         }
@@ -67,6 +69,7 @@ namespace UsersApp.Controllers
         {
             try
             {
+               
                 _context.Clients.Update(client);
                 _context.SaveChanges();
 
@@ -79,9 +82,10 @@ namespace UsersApp.Controllers
         }
 
         // GET: Client/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, int idrol)
         {
-           var cli= _context.Clients.FirstOrDefault(c => c.IdClient == id);
+            TempData["idrol"] = idrol;
+            var cli= _context.Clients.FirstOrDefault(c => c.IdClient == id);
             return View(cli);
         }
 
@@ -92,6 +96,7 @@ namespace UsersApp.Controllers
         {
             try
             {
+
                 _context.Clients.Remove(cli);
                 _context.SaveChanges();
 

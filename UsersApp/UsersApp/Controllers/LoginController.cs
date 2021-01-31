@@ -40,6 +40,7 @@ namespace UsersApp.Controllers
                   
                     if (user.TypeUser==0)
                     {
+                        TempData["idrol"] = user.TypeUser;
                         TempData["iduser"]=user.IdUser;
                         ViewBag.IdUser = user.IdUser;
                         ViewBag.Rol = 0;
@@ -47,6 +48,7 @@ namespace UsersApp.Controllers
                     }
                     else
                     {
+                        TempData["idrol"] = user.TypeUser;
                         TempData["iduser"] = user.IdUser;
                         ViewBag.IdUser = user.IdUser;
                         ViewBag.Rol = 1;

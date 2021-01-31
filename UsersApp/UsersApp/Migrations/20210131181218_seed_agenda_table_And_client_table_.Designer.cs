@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UsersApp.Data;
 
 namespace UsersApp.Migrations
 {
     [DbContext(typeof(UsersAppContext))]
-    partial class UsersAppContextModelSnapshot : ModelSnapshot
+    [Migration("20210131181218_seed_agenda_table_And_client_table_")]
+    partial class seed_agenda_table_And_client_table_
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,9 +103,9 @@ namespace UsersApp.Migrations
                     b.ToTable("Users");
 
                     b.HasData(
-                        new { IdUser = 1, LastName = "admin1", Name = "admin 1", Password = "123", TypeUser = 1, UuserName = "admin" },
-                        new { IdUser = 2, LastName = "testing", Name = "tester 1", Password = "123", TypeUser = 0, UuserName = "test" },
-                        new { IdUser = 3, LastName = "test", Name = "tester 2", Password = "123", TypeUser = 0, UuserName = "test" }
+                        new { IdUser = 1, Password = "123", TypeUser = 1, UuserName = "admin" },
+                        new { IdUser = 2, Password = "123", TypeUser = 0, UuserName = "test" },
+                        new { IdUser = 3, Password = "123", TypeUser = 0, UuserName = "test" }
                     );
                 });
 
